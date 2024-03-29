@@ -97,7 +97,7 @@ publishing {
                 val dependencies = asNode().appendNode("dependencies")
                 configurations.implementation.get().allDependencies.all {
                     val dependency = this
-                    if (dependency.group == null || dependency.version == null) {
+                    if (dependency.group == null || dependency.version == null || dependency.name == "unspecified") {
                         return@all
                     }
                     val dependencyNode = dependencies.appendNode("dependency")
